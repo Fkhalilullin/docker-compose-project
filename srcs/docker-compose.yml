@@ -2,20 +2,28 @@ version: '3.5'
 
 networks:
   localhost:
-    name: inet
+    driver: bridge
+
+volumes:
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: /home/user/data/wordpress
+      o: bind
+      type: none
 
 services:
-
   nginx:
-    # depends_on:
-      # - wordpress
+    depends_on:
+      - wordpress
     container_name: nginx_debian
     build: ./nginx
     image: nginx
     ports:
       - "443:443"
-    # volumes:
-      # - wordpress:/var/www/wordpress
+    volumes:
+      - wordpress:/var/www/wordpress
     networks:
       - localhost
     restart: always
