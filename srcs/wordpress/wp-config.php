@@ -23,7 +23,7 @@
 define( 'DB_NAME', 'Mteressa' );
 
 /** MySQL database username */
-define( 'DB_USER', 'mteressa' );
+define( 'DB_USER', 'mte' );
 
 /** MySQL database password */
 define( 'DB_PASSWORD', 'password' );

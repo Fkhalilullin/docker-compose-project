@@ -1,6 +1,6 @@
 CREATE DATABASE Mteressa;
-CREATE USER 'mteressa'@'%' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON Mteressa.* TO 'mteressa'@'%';
+CREATE USER 'mte'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON Mteressa.* TO 'mte'@'%';
 FLUSH PRIVILEGES;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '12345';
