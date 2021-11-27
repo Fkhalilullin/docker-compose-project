@@ -7,7 +7,11 @@ clean:
 	docker-compose -f ./srcs/docker-compose.yml ps
 ps:
 	docker-compose -f ./srcs/docker-compose.yml ps
-fclean: clean
-	sudo docker rmi -f $(sudo docker images -qa)
-	sudo docker volume rm $(sudo docker volume ls -q)
-	sudo docker system prune -a --force
+fclean:
+	docker-compose -f ./srcs/docker-compose.yml down
+	-docker stop `docker ps -qa`
+	-docker rm `docker ps -qa`
+	-docker rmi -f `docker images -qa`
+	-docker volume rm `docker volume ls -q`
+	-docker network rm `docker network ls -q`
+	sudo rm -rf /home/mteressa/data
